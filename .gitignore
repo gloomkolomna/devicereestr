@@ -1,0 +1,11 @@
+Build
+.git
+.vs
+DeviceReestr\bin
+DeviceReestr\obj
+DeviceReestr.Core\bin
+DeviceReestr.Core\obj
+DeviceReestr.Db\bin
+DeviceReestr.Db\obj
+DeviceReestr.Tests\bin
+DeviceReestr.Tests\obj

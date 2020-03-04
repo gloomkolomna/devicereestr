@@ -1,0 +1,32 @@
+﻿<Window
+    x:Class="DeviceReestr.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DeviceReestr"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:userControls="clr-namespace:DeviceReestr.View.UserControls"
+    xmlns:view="clr-namespace:DeviceReestr.View"
+    Title="Реестр неких устройств"
+    Width="1024"
+    Height="680"
+    MinWidth="700"
+    MinHeight="490"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary Source="View/Styles.xaml" />
+    </Window.Resources>
+    <AdornerDecorator>
+        <Border BorderBrush="#FF666666" BorderThickness="0,1,0,0">
+            <Grid>
+                <Border IsEnabled="{Binding LongOperationInProgress, Converter={StaticResource BoolToInvertedVisibilityConverter}}">
+                    <view:MainView />
+                </Border>
+                <userControls:LongOperationPanel />
+            </Grid>
+        </Border>
+
+
+    </AdornerDecorator>
+</Window>

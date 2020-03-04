@@ -1,0 +1,7 @@
+E:\DATA\homedev\DeviceReestr\DeviceReestr.Core\bin\Debug\DeviceReestr.Core.dll
+E:\DATA\homedev\DeviceReestr\DeviceReestr.Core\bin\Debug\DeviceReestr.Core.pdb
+E:\DATA\homedev\DeviceReestr\DeviceReestr.Core\obj\Debug\DeviceReestr.Core.dll
+E:\DATA\homedev\DeviceReestr\DeviceReestr.Core\obj\Debug\DeviceReestr.Core.pdb
+E:\DATA\homedev\DeviceReestr\Build\Debug\DeviceReestr.Core.dll
+E:\DATA\homedev\DeviceReestr\Build\Debug\DeviceReestr.Core.pdb
+E:\DATA\homedev\DeviceReestr\DeviceReestr.Core\obj\Debug\DeviceReestr.Core.csprojAssemblyReference.cache

@@ -1,0 +1,30 @@
+﻿<UserControl
+    x:Class="DeviceReestr.View.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DeviceReestr.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:userControls="clr-namespace:DeviceReestr.View.UserControls"
+    xmlns:viewModel="clr-namespace:DeviceReestr.ViewModel"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary Source="Styles.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <Border IsEnabled="{Binding HasAutorizationUser, Converter={StaticResource BoolToVisibilityConverter}}">
+            <ContentControl Content="{Binding SelectedView, Mode=OneWay}">
+                <ContentControl.Resources>
+
+                    <DataTemplate DataType="{x:Type viewModel:WorkAreaVm}">
+                        <local:WorkAreaView />
+                    </DataTemplate>
+
+                </ContentControl.Resources>
+            </ContentControl>
+        </Border>
+        <userControls:LoginView Visibility="{Binding HasAutorizationUser, Converter={StaticResource BoolToInvertedVisibilityConverter}}" />
+    </Grid>
+</UserControl>
