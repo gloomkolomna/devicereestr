@@ -1,12 +1,13 @@
-Тестовое задание C# + WPF
+## Тестовое задание C# + WPF
 Требуется разработать десктопное приложение - реестр неких устройств.
 Устройство представлено моделью Device с параметрами:
-UUID id;
-String serialNo;
-String type;
-String description;
-User owner;
-Date createdAt;
+- UUID id;
+- String serialNo;
+- String type;
+- String description;
+- User owner;
+- Date createdAt;
+
 С использованием WPF реализовать десктопное приложение со следующим функционалом:
 1. Авторизация пользователя, логин admin, пароль admin, только его должно пускать в приложение.
 2. Меню с 4 пунктами:
