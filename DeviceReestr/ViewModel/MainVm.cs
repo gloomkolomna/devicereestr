@@ -192,16 +192,18 @@ namespace DeviceReestr.ViewModel
             }
         }
 
-        private void CreateUser()
+        private async Task CreateUser()
         {
             if (AuthorizationValid())
             {
-                var user = _userService.CreateUser(Login, Password);
+                var user = await _longOperationService.ExecuteAsync(() => _userService.CreateUser(Login, Password), "Регистрация пользователя");
                 if (user != null)
                 {
-                    _userService.CurrentUser = user;
-                    HasAutorizationUser = true;
-                    Init();
+                    _dialogService.Show(DialogIcon.Information, "Авторизация", $"Пользователь {Login} добавлен.");
+                }
+                else
+                {
+                    _dialogService.Show(DialogIcon.Error, "Авторизация", $"Не удалось добавить пользователя {Login}.");
                 }
             }
         }
