@@ -9,20 +9,20 @@ namespace DeviceReestr.View.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var collapse = true;
-            if (parameter != null)
+            if (value is bool && (bool)value)
             {
-                if ((parameter is int && ((int)parameter) > 0) ||
-                    ((parameter is string) && string.Compare(parameter as string, "hide", StringComparison.InvariantCultureIgnoreCase) == 0))
-                    collapse = false;
+                return Visibility.Hidden;
             }
-
-            return (bool)value ? (collapse ? Visibility.Collapsed : Visibility.Hidden) : Visibility.Visible;
+            return Visibility.Visible;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ((Visibility)value) != Visibility.Visible;
+            if (value is Visibility && (Visibility)value == Visibility.Visible)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

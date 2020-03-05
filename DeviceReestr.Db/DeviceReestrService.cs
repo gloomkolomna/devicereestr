@@ -40,6 +40,10 @@ namespace DeviceReestr.Db
         public IEnumerable<Device> GetAllDevices()
         {
             var devices = ExecuteEnumerable<Device>(@"select * from Devices");
+            foreach (var device in devices)
+            {
+                device.Owner = Execute<User>($@"select * from Users where Id = '{device.OwnerId}'");
+            }
             return devices;
         }
 

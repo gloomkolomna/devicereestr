@@ -11,5 +11,10 @@ namespace DeviceReestr.Core.Entities
         public User Owner { get; set; }
         public Guid OwnerId { get; set; }
         public DateTime CreatedAt { get; set; }
+
+        public override string ToString()
+        {
+            return $"SerialNo: {SerialNo}, Type: {Type}, Description: {Description}";
+        }
     }
 }

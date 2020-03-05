@@ -26,7 +26,7 @@ namespace DeviceReestr.Services
             var user = _deviceReestrService.AddUser(pocoUser);
             if (user == null)
             {
-                _dialogService.Show(DialogIcon.Error, "Ошибка создания пользователя", $"Не удалось создать пользователя {login}");
+                _dialogService.Show(DialogIcon.Error, "Ошибка создания пользователя", $"Не удалось создать пользователя {pocoUser}");
                 return null;
             }
 

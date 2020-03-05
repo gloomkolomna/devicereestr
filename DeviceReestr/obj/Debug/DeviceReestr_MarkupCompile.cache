@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\DATA\homedev\DeviceReestr\DeviceReestr\App.xaml
-6-663968603
+9-1578660143
 
-21-638171143
+301002273634
 124-1280080565
-MainWindow.xaml;View\MainView.xaml;View\Styles.xaml;View\UserControls\LoginView.xaml;View\UserControls\LongOperationPanel.xaml;View\WorkAreaView.xaml;
+MainWindow.xaml;View\MainView.xaml;View\Styles.xaml;View\Tabs\StatisticsTabView.xaml;View\Tabs\AddDeviceTabView.xaml;View\Tabs\DevicesTabView.xaml;View\UserControls\LoginView.xaml;View\UserControls\LongOperationPanel.xaml;View\WorkAreaView.xaml;
 
 False
 

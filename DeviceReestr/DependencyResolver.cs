@@ -24,12 +24,17 @@ namespace DeviceReestr
             services.AddSingleton<MainWindow>();
             services.AddSingleton<DeviceReestrRepository>();
             services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<IDeviceService, DeviceService>();
 
             services.AddSingleton<IWorkAreaVm, WorkAreaVm>();
 
             services.AddScoped<IDeviceReestrService, DeviceReestrService>();
             services.AddScoped<ILongOperationService, LongOperationService>();
             services.AddScoped<IDialogService, DialogService>();
+
+            services.AddTransient<IAddDeviceTabVm, AddDeviceTabVm>();
+            services.AddTransient<IDevicesTabVm, DevicesTabVm>();
+            services.AddTransient<IStatisticsTabVm, StatisticsTabVm>();
         }
     }
 }

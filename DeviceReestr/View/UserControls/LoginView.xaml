@@ -12,7 +12,7 @@
         <ResourceDictionary Source="../Styles.xaml" />
     </UserControl.Resources>
     <Grid>
-        <Border Opacity="0.5" Visibility="{Binding HasAutorizationUser, Converter={StaticResource BoolToVisibilityConverter}}" />
+        <Border Opacity="0.5" Visibility="{Binding HasAutorizationUser, Converter={StaticResource BoolToInvertedVisibilityConverter}}" />
         <Border
             x:Name="LoginPanel"
             Width="200"
@@ -22,7 +22,8 @@
             Background="#FFF2F2F2"
             BorderBrush="#FFB2B2B2"
             BorderThickness="1"
-            Opacity="0.9">
+            Opacity="0.9"
+            Visibility="{Binding HasAutorizationUser, Converter={StaticResource BoolToInvertedVisibilityConverter}}">
             <Grid Margin="6">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />

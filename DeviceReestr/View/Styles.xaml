@@ -5,6 +5,7 @@
     xmlns:local="clr-namespace:DeviceReestr.View">
     <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
     <converters:BoolToInvertedVisibilityConverter x:Key="BoolToInvertedVisibilityConverter" />
+    <converters:BoolToInvertedBoolConverter x:Key="BoolToInvertedBoolConverter" />
     <converters:EnumBooleanConverter x:Key="EnumBooleanConverter" />
 
     <Style x:Key="LinkHoverStyle" TargetType="{x:Type Hyperlink}">

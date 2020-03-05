@@ -16,6 +16,7 @@ namespace DeviceReestr.ViewModel
     {
         Tab CurrentTab { get; set; }
         ICommand CloseUserSessionCommand { get; }
+        ITabVm SelectedTab { get; set; }
     }
 
     public class WorkAreaVm : ObservableObject, IWorkAreaVm
@@ -24,6 +25,7 @@ namespace DeviceReestr.ViewModel
         private readonly IUserService _userService;
         private Tab _currentTab;
         private ICommand _closeUserSessionCommand;
+        private ITabVm _selectedTab;
 
         public WorkAreaVm(IServiceProvider serviceProvider, IUserService userService)
         {
@@ -48,13 +50,24 @@ namespace DeviceReestr.ViewModel
             }
         }
 
-        public ICommand CloseUserSessionCommand {
+        public ICommand CloseUserSessionCommand
+        {
             get
             {
                 return _closeUserSessionCommand ?? (_closeUserSessionCommand = new RelayCommand(param => CloseUserSession())
                 {
                     MouseGesture = MouseAction.LeftClick
                 });
+            }
+        }
+
+        public ITabVm SelectedTab
+        {
+            get => _selectedTab;
+            set
+            {
+                _selectedTab = value;
+                OnPropertyChanged();
             }
         }
 
@@ -73,10 +86,24 @@ namespace DeviceReestr.ViewModel
             switch (tab)
             {
                 case Tab.AddDevice:
+                    if (_serviceProvider.GetService(typeof(IAddDeviceTabVm)) is AddDeviceTabVm addDeviceTabVm)
+                    {
+                        SelectedTab = addDeviceTabVm;
+                    }
                     break;
                 case Tab.Devices:
+                    if (_serviceProvider.GetService(typeof(IDevicesTabVm)) is DevicesTabVm devicesTabVm)
+                    {
+                        devicesTabVm.LoadAsync().ConfigureAwait(false);
+                        SelectedTab = devicesTabVm;
+                    }
                     break;
                 case Tab.Statistics:
+                    if (_serviceProvider.GetService(typeof(IStatisticsTabVm)) is StatisticsTabVm statisticsTabVm)
+                    {
+                        statisticsTabVm.LoadAsync().ConfigureAwait(false);
+                        SelectedTab = statisticsTabVm;
+                    }
                     break;
                 case Tab.None:
                     break;

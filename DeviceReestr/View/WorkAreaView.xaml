@@ -5,6 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DeviceReestr.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tabs="clr-namespace:DeviceReestr.View.Tabs"
+    xmlns:viewModel="clr-namespace:DeviceReestr.ViewModel"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -101,31 +103,24 @@
             </Grid>
         </Border>
 
-        <!--<ContentControl Grid.Row="2" Content="{Binding Path=SelectedTab, Mode=OneWay}">
+        <ContentControl
+            Grid.Row="1"
+            Margin="12"
+            Content="{Binding Path=SelectedTab, Mode=OneWay}">
             <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type tabsVm:PropertyTabVm}">
-                    <tabsView:PropertyTabView />
+                <DataTemplate DataType="{x:Type viewModel:AddDeviceTabVm}">
+                    <tabs:AddDeviceTabView />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type tabsVm:ConceptTabVm}">
-                    <tabsView:ConceptTabView />
+
+                <DataTemplate DataType="{x:Type viewModel:DevicesTabVm}">
+                    <tabs:DevicesTabView />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type tabsVm:FormulaTabVm}">
-        -->
-        <!--<tabsView:FormulaTabView />-->
-        <!--
+
+                <DataTemplate DataType="{x:Type viewModel:StatisticsTabVm}">
+                    <tabs:StatisticsTabView />
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type tabsVm:LinkTabVm}">
-        -->
-        <!--<tabsView:LinkTabView />-->
-        <!--
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type tabsVm:StructureTabVm}">
-                    <tabsView:StructureTabView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type tabsVm:AssortmentTabVm}">
-                    <tabsView:AssortmentTabView />
-                </DataTemplate>
+
             </ContentControl.Resources>
-        </ContentControl>-->
+        </ContentControl>
     </Grid>
 </UserControl>

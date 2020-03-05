@@ -14,17 +14,14 @@
         <ResourceDictionary Source="Styles.xaml" />
     </UserControl.Resources>
     <Grid>
-        <Border IsEnabled="{Binding HasAutorizationUser, Converter={StaticResource BoolToVisibilityConverter}}">
-            <ContentControl Content="{Binding SelectedView, Mode=OneWay}">
-                <ContentControl.Resources>
+        <ContentControl Content="{Binding SelectedView, Mode=OneWay}">
+            <ContentControl.Resources>
 
-                    <DataTemplate DataType="{x:Type viewModel:WorkAreaVm}">
-                        <local:WorkAreaView />
-                    </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModel:WorkAreaVm}">
+                    <local:WorkAreaView />
+                </DataTemplate>
 
-                </ContentControl.Resources>
-            </ContentControl>
-        </Border>
-        <userControls:LoginView Visibility="{Binding HasAutorizationUser, Converter={StaticResource BoolToInvertedVisibilityConverter}}" />
+            </ContentControl.Resources>
+        </ContentControl>
     </Grid>
 </UserControl>

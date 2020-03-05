@@ -46,3 +46,9 @@ E:\DATA\homedev\DeviceReestr\DeviceReestr\obj\Debug\View\UserControls\LoginView.
 E:\DATA\homedev\DeviceReestr\DeviceReestr\obj\Debug\View\WorkAreaView.g.cs
 E:\DATA\homedev\DeviceReestr\DeviceReestr\obj\Debug\View\UserControls\LoginView.baml
 E:\DATA\homedev\DeviceReestr\DeviceReestr\obj\Debug\View\WorkAreaView.baml
+E:\DATA\homedev\DeviceReestr\DeviceReestr\obj\Debug\View\Tabs\AddDeviceTabView.g.cs
+E:\DATA\homedev\DeviceReestr\DeviceReestr\obj\Debug\View\Tabs\AddDeviceTabView.baml
+E:\DATA\homedev\DeviceReestr\DeviceReestr\obj\Debug\View\Tabs\DevicesTabView.g.cs
+E:\DATA\homedev\DeviceReestr\DeviceReestr\obj\Debug\View\Tabs\DevicesTabView.baml
+E:\DATA\homedev\DeviceReestr\DeviceReestr\obj\Debug\View\Tabs\StatisticsTabView.g.cs
+E:\DATA\homedev\DeviceReestr\DeviceReestr\obj\Debug\View\Tabs\StatisticsTabView.baml

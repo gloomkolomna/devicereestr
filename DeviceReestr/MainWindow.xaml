@@ -20,10 +20,12 @@
     <AdornerDecorator>
         <Border BorderBrush="#FF666666" BorderThickness="0,1,0,0">
             <Grid>
-                <Border IsEnabled="{Binding LongOperationInProgress, Converter={StaticResource BoolToInvertedVisibilityConverter}}">
+                <Border IsEnabled="{Binding LongOperationInProgress, Converter={StaticResource BoolToInvertedBoolConverter}}">
                     <view:MainView />
                 </Border>
+                <userControls:LoginView IsEnabled="{Binding LongOperationInProgress, Converter={StaticResource BoolToInvertedBoolConverter}}" />
                 <userControls:LongOperationPanel />
+
             </Grid>
         </Border>
 

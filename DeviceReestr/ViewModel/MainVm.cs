@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using DeviceReestr.Services;
 
@@ -40,14 +41,14 @@ namespace DeviceReestr.ViewModel
         private ICommand _authorizationCommand;
         private ICommand _createUserCommand;
 
-        public MainVm(IServiceProvider serviceProvider, ILongOperationService longOperationService, 
+        public MainVm(IServiceProvider serviceProvider, ILongOperationService longOperationService,
             IDialogService dialogService, IUserService userService)
         {
             _serviceProvider = serviceProvider;
             _longOperationService = longOperationService;
             _dialogService = dialogService;
             _userService = userService;
-            
+
             Subscribe();
         }
 
@@ -173,20 +174,21 @@ namespace DeviceReestr.ViewModel
             {
                 return _authorizationCommand ?? (_authorizationCommand = new RelayCommand(
                            param => Authorization())
-                       {
-                           MouseGesture = MouseAction.LeftClick
-                       });
+                {
+                    MouseGesture = MouseAction.LeftClick
+                });
             }
         }
 
-        public ICommand CreateUserCommand {
+        public ICommand CreateUserCommand
+        {
             get
             {
                 return _createUserCommand ?? (_createUserCommand = new RelayCommand(
                            param => CreateUser())
-                       {
-                           MouseGesture = MouseAction.LeftClick
-                       });
+                {
+                    MouseGesture = MouseAction.LeftClick
+                });
             }
         }
 
@@ -204,18 +206,36 @@ namespace DeviceReestr.ViewModel
             }
         }
 
-        private void Authorization()
+        private async Task Authorization()
         {
             if (AuthorizationValid())
             {
-                var user = _userService.GetUser(Login, Password);
-                if (user != null)
+                if (AdminValidation())
                 {
-                    _userService.CurrentUser = user;
-                    HasAutorizationUser = true;
-                    Init();
+                    var user = await _longOperationService.ExecuteAsync(() =>
+                    _userService.GetUser(Login, Password), "Авторизация");
+                    if (user != null)
+                    {
+                        _userService.CurrentUser = user;
+                        HasAutorizationUser = true;
+                        Init();
+                    }
+                }
+                else
+                {
+                    _dialogService.Show(DialogIcon.Warning, "Предупреждение", "Пользователь не admin");
                 }
             }
+        }
+
+        private bool AdminValidation()
+        {
+            if (Login.ToLower().Equals("admin") && Password.ToLower().Equals("admin"))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private bool AuthorizationValid()

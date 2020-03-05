@@ -86,19 +86,34 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\DeviceService.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\LongOperationService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="ViewModel\Tabs\AddDeviceTabVm.cs" />
     <Compile Include="ViewModel\ILongOperationNotify.cs" />
     <Compile Include="ViewModel\MainVm.cs" />
     <Compile Include="ViewModel\ObservableObject.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\Tabs\DevicesTabVm.cs" />
+    <Compile Include="ViewModel\Tabs\ITabVm.cs" />
+    <Compile Include="ViewModel\Tabs\StatisticsTabVm.cs" />
     <Compile Include="ViewModel\WorkAreaVm.cs" />
+    <Compile Include="View\Converters\BoolToInvertedBoolConverter.cs" />
     <Compile Include="View\Converters\BoolToInvertedVisibilityConverter.cs" />
     <Compile Include="View\Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="View\Converters\EnumBooleanConverter.cs" />
     <Compile Include="View\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Tabs\StatisticsTabView.xaml.cs">
+      <DependentUpon>StatisticsTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Tabs\AddDeviceTabView.xaml.cs">
+      <DependentUpon>AddDeviceTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Tabs\DevicesTabView.xaml.cs">
+      <DependentUpon>DevicesTabView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -127,6 +142,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Tabs\StatisticsTabView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Tabs\AddDeviceTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Tabs\DevicesTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
